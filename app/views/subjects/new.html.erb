@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <h1>Crear Materia</h1>
+      <%= bootstrap_form_for @subject, url: new_subject_path do |f| %>
+          <%= f.text_field :name, label: "Nombre de la materia", autofocus: true %>
+          <%= f.text_field :code, label: "Código de la materia" %>
+          <%= f.submit "Crear", class: "btn btn-primary btn-block btn-lg" %>
+      <% end %>
+      <hr>
+    </div>
+  </div>
+</div>
+

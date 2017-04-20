@@ -1,0 +1,52 @@
+
+
+<div class="container">
+      <div class="row">
+        <% if teacher?(current_user) || admin?(current_user)  %>
+          <%= render partial: "/shared/search_bar", locals: {controller: "subjects_panels", action: "index"} %>
+        <% end %>
+        <div class="col-sm-6 toppad" >
+        <% @general_q.each do |general_q| %>
+            <div class="panel panel-<%= student_status(User.find(general_q.student_id)) %>">
+              <div class="panel-heading">
+                <h3 class="panel-title">Aspectos Generales de <%= @subject.name %> <%= @subject.code %></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class=" col-md-12 col-lg-12 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>Asistencia a clase:</td>
+                          <td><%= general_q.class_assistance.first(-2) %></td>
+                        </tr>
+                        <tr>
+                          <td>Trabajo en clase:</td>
+                          <td><%= general_q.class_participation.first(-2) %></td>
+                        </tr>
+                        <tr>
+                          <td>Seguimiento de instrucciones:</td>
+                          <td><%= general_q.class_orders_following.first(-2) %></td>
+                        </tr>
+                        <tr>
+                          <td>Profesor:</td>
+                          <td><%= User.find(general_q.teacher_id).names %> <%= User.find(general_q.teacher_id).last_names %> </td>
+                        </tr>
+                        <% if teacher?(current_user) || admin?(current_user) %>
+                          <tr>
+                            <td><b> Estudiante: </b></td>
+                            <td><b><%= User.find(general_q.student_id).names %> <%= User.find(general_q.student_id).last_names %></b></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,33 @@
+<div class="login-page form">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+          <h1>Ingresar</h1>
+          <p>Escribe tus credenciales e ingresa</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+        <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
+          <%= f.email_field :email, label: "Email", autofocus: true %>
+          <%= f.password_field :password, label: "Contraseña", autocomplete: "off" %>
+
+          <%= f.form_group :remember_me do %>
+            <%= f.check_box :remember_me, label: "Recordarme" %>
+          <% end %>
+
+          <div style="margin-top: 25px;">
+            <%= f.submit "Ingresar", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+        <hr>
+
+      </div>
+    </div>
+  </div>
+</div>

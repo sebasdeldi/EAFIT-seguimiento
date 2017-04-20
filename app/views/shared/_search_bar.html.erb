@@ -1,0 +1,11 @@
+<div class="search-box">
+  <%= form_tag url_for( controller: controller , action: action), method: :get, class: "form-horizontal" do %>
+    <div class="input-group">
+      <%= text_field_tag :q, params[:q], class: "form-control search-input-big", placeholder: "Ingresa nombre o apellido" %>
+      <span class="input-group-btn">
+       <%= submit_tag "Buscar", class: "btn btn-default search-button-big" %>
+      </span>
+    </div>
+  <% end %>
+  <br>
+</div>

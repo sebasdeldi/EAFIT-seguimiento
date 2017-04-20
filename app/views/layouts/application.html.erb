@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SeguimientoEstudiantes</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">EAFIT</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Mi Perfil", edit_user_path(current_user) %></li>
+                  <li role="separator" class="divider"></li>
+                  <% if admin?(current_user) %>
+                    <li><%= link_to "Crear Materia", new_subject_path %></li>
+                    <li><%= link_to "Registrar Profesor", new_user_registration_path %></li>
+                    <li role="separator" class="divider"></li>              
+                  <% end %>          
+                  <li><%= link_to "Salir", destroy_user_session_url, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Ingresar", new_user_session_path %></li>
+              <li><%= link_to "Registrarse", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

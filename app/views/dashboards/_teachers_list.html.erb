@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @teachers.each do |teacher| %>
+    <%= link_to teacher do %>
+      <button type="button" class="list-group-item"><%= teacher.names %> <%= teacher.last_names %></button>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,45 @@
+
+<div class="new-user-path form">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+         <h1>Editar</h1>
+        <%= bootstrap_form_for @user do |f| %>
+
+          <%= f.email_field :email, class: "form-control", autofocus: true %>
+        
+          <div class="row">
+            <div class="col-sm-6">
+              <%= f.text_field :names, label: "Nombres" %>
+            </div>
+            <div class="col-sm-6">
+              <%= f.text_field :last_names, label: "Apellidos" %>
+            </div>
+          </div>
+
+          <% if student?(@user) %>
+            <%= render partial: '/shared/student_fields', locals: {f: f} %>
+          <% end %>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <%= f.password_field :password, label: "Nueva Contraseña", autocomplete: "off" %>
+            </div>
+            <div class="col-sm-6">
+              <%= f.password_field :password_confirmation, label: "Confirmar Contraseña", autocomplete: "off" %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Editar", class: "btn btn-primary btn-block btn-lg" %>
+          </div>
+        <% end %>
+
+        <hr>
+
+ 
+      </div>
+    </div>
+  </div>
+
+</div>

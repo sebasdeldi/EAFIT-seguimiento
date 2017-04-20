@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @user.names %> <%= @user.last_names %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Email:</td>
+                    <td><%= @user.email %></td>
+                  </tr>
+                  <tr>
+                    <td>Bachillerato:</td>
+                    <td><%= @user.highschool %></td>
+                  </tr>
+                  <tr>
+                    <td>Tipo de institución:</td>
+                    <td><%= @user.highschool_type %></td>
+                  </tr>
+                  <tr>
+                    <td>Municipio de Origen:</td>
+                    <td><%= @user.origin_municipality %></td>
+                  </tr>
+
+                  <tr>
+                    <tr>
+                      <td>Dirección:</td>
+                      <td><%= @user.address %></td>
+                    </tr>
+                    <tr>
+                      <td>Municipio de  Residencia:</td>
+                      <td><%= @user.living_municipality %></td>
+                    </tr>
+                    <tr>
+                      <td>Barrio de Residencia:</td>
+                      <td><%= @user.living_neighbourhood %></td>
+                    </tr>
+                      <td>Beca:</td>
+                      <td><%= @user.scolarship %></td>
+                    </tr>
+                    </tr>
+                      <td>Acceso a computador en casa:</td>
+                      <td><%= @user.computer_access %></td>
+                    </tr>
+                    </tr>
+                      <td>Educación Técnica:</td>
+                      <td><%= @user.technical_education  %></td>
+                    </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <% if admin?(current_user) %>
+            <%= mail_to @user.email, class: "btn btn-sm btn-primary" do %>
+              <i class="glyphicon glyphicon-envelope"></i>
+            <% end %>
+          <% end %>
+          <span >
+            <%= link_to edit_user_path(@user), class:"btn btn-sm btn-warning" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+            <% if current_user == @user %>
+              <%= link_to destroy_user_session_path,method: :delete, class:"btn btn-sm btn-danger" do %>
+                <i class="glyphicon glyphicon-remove"></i>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Materias</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <% @user_subjects.each do |subject| %>
+                    <tr>
+                      <td>
+                        <%= link_to subject_panel_path(subject), class: "text-" + student_status(@user) do %>
+                          <%= subject.name %> <%= subject.code %>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,6 @@
+<% if student?(@user) %>
+  <%= render "student_info" %>
+<% end %>
+<% if teacher?(@user) %>
+  <%= render "teacher_info" %>
+<% end %>

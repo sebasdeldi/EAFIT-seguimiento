@@ -1,0 +1,55 @@
+<div class="container">
+      <div class="row">
+ 
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= @user.names %> <%= @user.last_names %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">                
+                <div class=" col-md-12 col-lg-12 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Email:</td>
+                        <td><%= @user.email %></td>
+                      </tr>
+                      <tr>
+                        <td>Materias:</td>
+                        <td>
+                          <% @user_subjects.each do |subject| %>
+                            <%= link_to subject do %>
+                              <%= subject.name %> <%= subject.code %>
+                            <% end %>
+                            <br> 
+                          <% end %>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+              
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <% if admin?(current_user) %>
+                <%= mail_to @user.email, class: "btn btn-sm btn-primary" do %>
+                  <i class="glyphicon glyphicon-envelope"></i>
+                <% end %>
+              <% end %>
+              <span>
+                <%= link_to edit_user_path(@user), class:"btn btn-sm btn-warning" do %>
+                  <i class="glyphicon glyphicon-edit"></i>
+                <% end %>
+                <% if current_user == @user %>
+                  <%= link_to destroy_user_session_path,method: :delete, class:"btn btn-sm btn-danger" do %>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  <% end %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

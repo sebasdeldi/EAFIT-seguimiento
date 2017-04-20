@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @subjects.each do |subject| %>
+    <%= link_to subject do %>
+      <button type="button" class="list-group-item"><%= subject.name %> </button>
+    <% end %>
+  <% end %>
+</div>

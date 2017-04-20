@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  answer: MyString
+  subject: one
+  student_id: 1
+  teacher_id: 1
+
+two:
+  type: 
+  answer: MyString
+  subject: two
+  student_id: 1
+  teacher_id: 1

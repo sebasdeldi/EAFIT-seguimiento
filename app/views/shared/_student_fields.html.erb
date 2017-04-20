@@ -1,0 +1,28 @@
+
+<%= f.text_field :code, label: "Código de estudiante EAFIT" %>
+
+<%= f.text_field :highschool, label: "Institución Educativa de bachillerato" %>
+
+<%= f.select(:highschool_type, [['Oficial', 'Oficial'], ['Privada', 'Privada']], label: "Tipo de Institución Educativa") %>
+
+<%= f.select(:technical_education, [['Si', "Si"], ['No', "No"]], label: "¿Su institución tiene media técnica en informática o similar?") %>
+
+<%= f.text_field :origin_municipality, label: "Municipio de origen" %>
+
+<%= f.text_field :address, label: "Dirección de vivienda en el periodo de estudio" %>
+
+<%= f.text_field :living_neighbourhood, label: "Barrio de la vivienda en el periodo de estudio" %>
+
+<%= f.text_field :living_municipality, label: "Municipio de vivienda en el periodo de estudio" %>
+
+<%= f.select(:scolarship,
+    [['Ninguna', 'Ninguna'], ['Ser pilo paga', 'Ser pilo paga',
+    ],["MinTIC - Talento TI", "MinTIC - Talento TI"], ["Andi - EAFIT", "Andi - EAFIT"], ["Municipio de Medellín", "Municipio de Medellín"],
+    ["Hijo de empleado", "Hijo de empleado"], ["Municipio de Sabaneta", "Municipio de Sabaneta"], ["Sofia Perez de Soto", "Sofia Perez de Soto"],
+    ["Beca Suiza", "Beca Suiza"], ["Olimpiadas del conocimiento", "Olimpiadas del conocimiento"], ["Crédito condonable Icetex", "Crédito condonable Icetex"],
+    ["Beca deportiva", "Beca deportiva"], ["Fundacion Sofia Perez de Soto", "Fundacion Sofia Perez de Soto"], ["Otra", "Otra"]], 
+    label: "¿Tengo algún tipo de beca? ¿Cuál es la beca?" ) %>
+
+<%= f.select(:computer_access, [['Si', 'Si'], ['No', 'No']], label: "¿Tiene acceso a un computador en su lugar de vivienda?") %>
+
+<%= f.hidden_field(:role, value: "student") %>

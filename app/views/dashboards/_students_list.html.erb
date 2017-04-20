@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @students.each do |student| %>
+    <%= link_to student do %>
+      <button type="button" class="list-group-item list-group-item-<%=  GeneralQuestion.where(student_id: student.id).empty? ? '' : student_status(student) %>"><%= student.names %> <%= student.last_names %></button>
+    <% end %>
+  <% end %>
+</div>

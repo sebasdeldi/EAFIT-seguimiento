@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @subject.name %> - <%= @subject.code %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nombres</th>
+                    <th>Código</th>
+                    <th>Role</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @subject.users.each do |user| %>
+                    <tr class="<%= student?(user) ? student_status(user) : "" %>" >
+                      <td><%= user.names %> <%= user.last_names %></td>
+                      <td><%= user.code %></td>
+                      <td><%= user.role != "teacher" ? "Estudiante" : "Profesor" %></td>
+                      <td><%= link_to "Visitar", user_path(user) %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if admin?(current_user) %>
+      <div class="col-sm-6 toppad" >
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Agregar estudiantes y profesores</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class=" col-md-12 col-lg-12 ">
+                <%= bootstrap_form_tag url: new_membership_path do |f| %>
+                  <%= f.email_field :user_email, label: "Email del usuario" %>
+                  <%= f.hidden_field :create_membership, value: "true" %>
+                  <%= f.submit "Agregar Usuario" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if teacher?(current_user) %>
+      <div class="col-sm-6 toppad" >
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title"> Calificar Estudiante</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class=" col-md-12 col-lg-12 ">
+              <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#general" data-toggle="tab"> Datos Generales </a></li>
+                <li class=""><a href="#specific" data-toggle="tab">Datos Específicos </a></li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="general">
+                  <div class="users-list">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <%= render "general_questions" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="specific">
+                  <div class="users-list">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <%= render "specific_questions" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= link_to subject_panel_path @subject do %>
+        <button class="btn btn-large"> Panel de calificaciones</button>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("href")
+});
+</script>

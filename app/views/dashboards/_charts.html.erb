@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h3> Estudiantes con computador en casa</h3>
+      <%= pie_chart @computer_access_chart, donut: true %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h3> Estudiantes con educación técnica</h3>
+      <%= pie_chart @technical_education_chart, donut: true %>
+    </div>
+  </div>
+</div>
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h3> Becas de estudiantes</h3>
+      <%= pie_chart @scolarship_chart, donut: true %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h3> Tipo de bachillerato</h3>
+      <%= pie_chart @highschool_type_chart, donut: true %>
+    </div>
+  </div>
+</div>
+

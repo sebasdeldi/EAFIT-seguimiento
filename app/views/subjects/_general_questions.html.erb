@@ -1,0 +1,8 @@
+<%= bootstrap_form_tag url: new_membership_path do |f| %>
+    <% options = options_from_collection_for_select(@subject.users, 'id', 'code') %>
+    <%= f.select :student_id,  options, label: "Código de Estudiante" %>
+    <%= f.select(:class_assistance, [['El estudiante asiste regularmente a clase', 'El estudiante asiste regularmente a clase-5'], ['El estudiante algunas veces falta a clase', 'El estudiante algunas veces falta a clase-3'],["El estudiante no asiste a clase de forma notoria", "El estudiante no asiste a clase de forma notoria-0"]], label: "Asistencia a Clase") %>
+    <%= f.select(:class_participation, [['El estudiante participa proactivamente en las actividades grupales', 'El estudiante participa proactivamente en las actividades grupales-5'], ['El estudiante participa de las actividades de grupo incluso si no es de su agrado o se le difuculta', 'El estudiante participa de las actividades de grupo incluso si no es de su agrado o se le difuculta-3'], ["El estudiante manifiesta dificultades en su trabajo en grupo", "El estudiante manifiesta dificultades en su trabajo en grupo-0"]], label: "Trabajo en Clase") %>
+    <%= f.select(:class_orders_following, [['Planea, organiza y ejecuta de forma estructurada un conjunto de instrucciones', 'Planea, organiza y ejecuta de forma estructurada un conjunto de instrucciones-5'], ['Maneja estructuras básicas que contienen un conjunto de instrucciones', 'Maneja estructuras básicas que contienen un conjunto de instrucciones-3'], ["Presenta dificultades para planear y estructurar instrucciones", "Presenta dificultades para planear y estructurar instrucciones-0"]], label: "Capacidad para manejar instrucciones") %>
+    <%= f.submit "Calificar" %>
+<% end %>
