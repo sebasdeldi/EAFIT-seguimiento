@@ -1,1 +1,18 @@
-<h1> Adios </h1>
+<br>
+<%= bootstrap_form_tag url: new_membership_path do |f| %>
+  <% options = options_from_collection_for_select(@subject.users, 'id', 'code') %>
+  <%= f.select :student_id,  options, label: "Código de Estudiante" %>
+  <br>
+  <h4 class="underline">Analisis de las variables y elementos que definen el problema</h4>
+  <%= f.select(:arguments_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'],["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta argumentos claros y adecuados") %>
+  <%= f.select(:diagram_structure, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Estructura los componentes básicas en un mapa o diagrama") %>
+  <%= f.select(:objective_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta el objetivo general del problema") %>
+  <%= f.select(:problem_solution, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta la solución del problema") %>
+  <br>
+  <h4 class="underline">Presenta soluciones de software básicas con base en la programación orientada a objetos</h4>
+  <%= f.select(:case_use_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'],["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los reguisitos mediante los diagramas casos de uso") %>
+  <%= f.select(:class_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura la solución del problmea mediante los diagramas de clase") %>
+  <%= f.select(:secuence_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los pasos en la ejecución del problema mediante los diagramas de secuencia") %>
+  <br>
+  <%= f.submit "Calificar" %>
+<% end %>

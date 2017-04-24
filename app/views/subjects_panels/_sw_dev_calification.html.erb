@@ -1,0 +1,59 @@
+<div class="panel panel-<%= student_sw_dev_status(User.find(sw_dev_principles_q.student_id)) %>">
+  <div class="panel-heading">
+    <h3 class="panel-title">Aspectos Especificos de <%= @subject.name %> <%= @subject.code %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-12 col-lg-12 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr><b> Analisis de las variables y elementos que definen el problema </b></tr>
+            <tr>
+              <td>Presenta argumentos claros y adecuados:</td>
+              <td><%= sw_dev_principles_q.arguments_presentation.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Estructura los componentes básicas en un mapa o diagrama:</td>
+              <td><%= sw_dev_principles_q.diagram_structure.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Presenta el objetivo general del problema:</td>
+              <td><%= sw_dev_principles_q.objective_presentation.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Presenta la solución del problema:</td>
+              <td><%= sw_dev_principles_q.problem_solution.first(-2) %></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-user-information">
+          <tbody>
+            <tr><b> Presenta soluciones de software básicas con base en la programación orientada a objetos </b></tr>
+            <tr>
+              <td>Estructura los reguisitos mediante los diagramas casos de uso:</td>
+              <td><%= sw_dev_principles_q.case_use_diagrams.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Estructura la solución del problmea mediante los diagramas de clase:</td>
+              <td><%= sw_dev_principles_q.class_diagrams.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Estructura los pasos en la ejecución del problema mediante los diagramas de secuencia:</td>
+              <td><%= sw_dev_principles_q.secuence_diagrams.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Profesor:</td>
+              <td><%= User.find(sw_dev_principles_q.teacher_id).names %> <%= User.find(sw_dev_principles_q.teacher_id).last_names %> </td>
+            </tr>
+            <% if teacher?(current_user) || admin?(current_user) %>
+              <tr>
+                <td><b> Estudiante: </b></td>
+                <td><b><%= User.find(sw_dev_principles_q.student_id).names %> <%= User.find(sw_dev_principles_q.student_id).last_names %></b></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

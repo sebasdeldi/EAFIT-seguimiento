@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numeric_calification: 1
+  subject: one
+  student_id: 1
+  teacher_id: 1
+  arguments_presentation: MyString
+  diagram_structure: MyString
+  objective_presentation: MyString
+  problem_solution: MyString
+  case_use_diagrams: MyString
+  class_diagrams: MyString
+  secuence_diagrams: MyString
+
+two:
+  numeric_calification: 1
+  subject: two
+  student_id: 1
+  teacher_id: 1
+  arguments_presentation: MyString
+  diagram_structure: MyString
+  objective_presentation: MyString
+  problem_solution: MyString
+  case_use_diagrams: MyString
+  class_diagrams: MyString
+  secuence_diagrams: MyString

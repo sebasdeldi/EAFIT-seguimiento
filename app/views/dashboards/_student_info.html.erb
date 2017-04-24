@@ -90,8 +90,12 @@
                   <% @user_subjects.each do |subject| %>
                     <tr>
                       <td>
-                        <%= link_to subject_panel_path(subject), class: "text-" + student_status(@user) do %>
-                          <%= subject.name %> <%= subject.code %>
+                        <% if !teacher?(current_user) %>
+                          <%= link_to subject_panel_path(subject), class: "text-" + average_status(@user) do %>
+                            <%= subject.name %> <%= subject.code %>
+                          <% end %>
+                        <% else %>
+                          <p class="text-<%= average_status(@user) %>"><%= subject.name %> <%= subject.code %></p>
                         <% end %>
                       </td>
                     </tr>
