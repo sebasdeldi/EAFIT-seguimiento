@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get "subject/:id", to: "subjects#show", as: "subject"
   post "subject/:id", to: "subjects#show", as: "new_membership"
   get "subject/:id/panel", to: "subjects_panels#index", as: "subject_panel"
+  get "/batch_load", to: "batch_loads#load_elements", as: "batch_load"
+  post "/batch_load", to: "batch_loads#load_elements"
 
 end

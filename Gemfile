@@ -20,6 +20,8 @@ gem 'devise'
 gem 'bootstrap_form'
 gem 'rails-i18n', '~> 5.0.0'
 gem "chartkick"
+gem "roo", "~> 2.7.0"
+
 
 
 

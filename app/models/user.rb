@@ -18,6 +18,15 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :subjects, through: :memberships
 
+  def self.import(file)
+    spreadsheet = Roo::Excelx.new(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      User.create!(row)
+    end
+  end
+
   def self.search_students(search)
     where("names ILIKE ? OR last_names ILIKE ?", "%#{search}%", "%#{search}%").where("role = ?", "student" )
   end

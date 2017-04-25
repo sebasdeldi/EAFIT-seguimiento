@@ -1,7 +1,7 @@
 <div class="list-group">
   <% @subjects.each do |subject| %>
     <%= link_to subject do %>
-      <button type="button" class="list-group-item"><%= subject.name %> </button>
+      <button type="button" class="list-group-item"><%= subject.name %> - <%= subject.code %> </button>
     <% end %>
   <% end %>
 </div>

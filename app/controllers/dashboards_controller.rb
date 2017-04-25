@@ -2,7 +2,6 @@ class DashboardsController < ApplicationController
   before_action :validate_access, only: [:show]
   before_action :validate_index_access, only: [:index]
   def index
-
     if params[:q]
 			@students = User.search_students(params[:q]).reverse
 			@teachers = User.search_teachers(params[:q]).reverse
@@ -38,7 +37,7 @@ class DashboardsController < ApplicationController
     end
 
     def validate_index_access
-      if !current_user 
+      if !current_user
         redirect_to new_user_session_path
       elsif !admin?(current_user)
         redirect_to user_path current_user

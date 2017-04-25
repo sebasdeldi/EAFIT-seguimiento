@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= bootstrap_form_tag url: batch_load_path do |f| %>
+        <%= f.hidden_field :import_users, value: "123" %>
+        <%= f.file_field :spreadsheet, label: "Cargar estudiantes" %>
+        <%= f.submit "Cargar" %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <%= bootstrap_form_tag url: batch_load_path do |f| %>
+        <%= f.hidden_field :import_subject, value: "123" %>
+        <%= f.file_field :spreadsheet, label: "Cargar materia" %>
+        <%= f.submit "Cargar" %>
+      <% end %>
+    </div>
+  </div>
+</div>

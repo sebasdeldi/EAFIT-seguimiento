@@ -23,7 +23,7 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  
+
 
           <ul class="nav navbar-nav navbar-right">
             <% if signed_in? %>
@@ -35,8 +35,9 @@
                   <% if admin?(current_user) %>
                     <li><%= link_to "Crear Materia", new_subject_path %></li>
                     <li><%= link_to "Registrar Profesor", new_user_registration_path %></li>
-                    <li role="separator" class="divider"></li>              
-                  <% end %>          
+                    <li><%= link_to "Cargar Registros", batch_load_path %></li>
+                    <li role="separator" class="divider"></li>
+                  <% end %>
                   <li><%= link_to "Salir", destroy_user_session_url, method: :delete %></li>
                 </ul>
               </li>
