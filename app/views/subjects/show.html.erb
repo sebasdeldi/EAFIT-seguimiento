@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                   <% @subject.users.each do |user| %>
-                    <tr class="<%= student?(user) ? average_status(user) : "" %>" >
+                    <tr class="<%= student?(user) ? average_subject_status(user, @subject) : "" %>" >
                       <td><%= user.names %> <%= user.last_names %></td>
                       <td><%= user.code %></td>
                       <td><%= user.role != "teacher" ? "Estudiante" : "Profesor" %></td>

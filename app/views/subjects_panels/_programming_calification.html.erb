@@ -1,0 +1,104 @@
+<div class="panel panel-<%= student_programming_status(User.find(programming_fundamentals_q.student_id)) %>">
+  <div class="panel-heading">
+    <h3 class="panel-title">Aspectos Especificos de <%= @subject.name %> <%= @subject.code %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class=" col-md-12 col-lg-12 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr><b> Define la solución de problemas que obedecen a estructura básicas mediante el uso de técnicas de programación </b></tr>
+            <tr>
+              <td>Analiza algoritmos mediante la técnica de caja negra:</td>
+              <td><%= programming_fundamentals_q.black_box.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Presenta pseudocodigos:</td>
+              <td><%= programming_fundamentals_q.pseudocode.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Presenta diagramas de flujo:</td>
+              <td><%= programming_fundamentals_q.diagrams.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Usa la técnica de modularidad:</td>
+              <td><%= programming_fundamentals_q.modularity.first(-2) %></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-user-information">
+          <tbody>
+            <tr><b> Realiza programas en Java bajo el enfoque Orientado a Objetos mostrando el uso de </b></tr>
+            <tr>
+              <td>Abstracción de forma:</td>
+              <td><%= programming_fundamentals_q.abstraction.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Encapsulamiento de forma:</td>
+              <td><%= programming_fundamentals_q.encapsulation.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Herencia de forma:</td>
+              <td><%= programming_fundamentals_q.inheritance.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Polimorfismo de forma:</td>
+              <td><%= programming_fundamentals_q.polymorphism.first(-2) %></td>
+            </tr>
+          </tbody>
+          <table class="table table-user-information">
+          <tbody>
+            <tr><b> Desarrolla programas en Java con Interfaz en modo consola e Interfaz en modo Gráfico </b></tr>
+            <tr>
+              <td>Estructura la solución del problmea mediante los diagramas de clase:</td>
+              <td><%= programming_fundamentals_q.class_diagrams.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Muestra capacidad de crear la implementación de un programa que funcione correctamente:</td>
+              <td><%= programming_fundamentals_q.implementation.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Muestra capacidad para diseñar y llevar a cabo pruebas de la aplicación:</td>
+              <td><%= programming_fundamentals_q.testing.first(-2) %></td>
+            </tr>
+        </tbody>
+        </table>
+        <table class="table table-user-information">
+          <tbody>
+            <tr><b> Diseño de algoritmos que involucran los elementos básicos de la programación estructurada </b></tr>
+            <tr>
+              <td>Utiliza las secuencias de forma:</td>
+              <td><%= programming_fundamentals_q.sequences.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Utiliza las desiciones de forma:</td>
+              <td><%= programming_fundamentals_q.desitions.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Utiliza los ciclos de forma:</td>
+              <td><%= programming_fundamentals_q.loops.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Utiliza las funciones de forma:</td>
+              <td><%= programming_fundamentals_q.functions.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Utiliza las estructuras de datos lineales de forma:</td>
+              <td><%= programming_fundamentals_q.data_structures.first(-2) %></td>
+            </tr>
+            <tr>
+              <td>Profesor:</td>
+              <td><%= User.find(programming_fundamentals_q.teacher_id).names %> <%= User.find(programming_fundamentals_q.teacher_id).last_names %> </td>
+            </tr>
+            <% if teacher?(current_user) || admin?(current_user) %>
+              <tr>
+                <td><b> Estudiante: </b></td>
+                <td><b><%= User.find(programming_fundamentals_q.student_id).names %> <%= User.find(programming_fundamentals_q.student_id).last_names %></b></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

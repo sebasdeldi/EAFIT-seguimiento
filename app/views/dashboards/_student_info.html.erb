@@ -91,7 +91,7 @@
                     <tr>
                       <td>
                         <% if !teacher?(current_user) %>
-                          <%= link_to subject_panel_path(subject), class: "text-" + average_status(@user) do %>
+                          <%= link_to subject_panel_path(subject), class: "text-" + average_subject_status(@user, subject) do %>
                             <%= subject.name %> <%= subject.code %>
                           <% end %>
                         <% else %>

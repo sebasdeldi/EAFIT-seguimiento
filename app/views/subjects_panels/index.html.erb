@@ -15,6 +15,11 @@
             <%= render partial: "sw_dev_calification", locals: {sw_dev_principles_q: sw_dev_principles_q} %>
           <% end %>
         </div>
+        <div class="col-sm-6 toppad" >
+          <% @programming_fundamentals_q.each do |programming_fundamentals_q| %>
+            <%= render partial: "programming_calification", locals: {programming_fundamentals_q: programming_fundamentals_q} %>
+          <% end %>
+        </div>
       </div>
     </div>
 

@@ -8,15 +8,17 @@ class Subject < ApplicationRecord
 
   def self.import(file)
     spreadsheet = Roo::Excelx.new(file)
-    name = spreadsheet.cell(2, "B").split("-")[1]
-    semester = spreadsheet.cell(1, "B").split(" ")[1]
-    group = spreadsheet.cell(3, "B").split(" ")[1]
-    code = semester + spreadsheet.cell(2, "B").split("-")[0].split(" ")[1] + "-" + group
-    subject = Subject.create!(name: name, code: code)
-    (9..spreadsheet.last_row).each do |i|
-      student = User.where(code: spreadsheet.cell(i, 'B')).first
-      unless student == nil
-        subject.users << student unless subject.users.include?(student)
+    spreadsheet.each_with_pagename do |name, sheet|
+      name = sheet.cell(2, "B").split("-")[1]
+      semester = sheet.cell(1, "B").split(" ")[1]
+      group = sheet.cell(3, "B").split(" ")[1]
+      code = semester + sheet.cell(2, "B").split("-")[0].split(" ")[1] + "-" + group
+      subject = Subject.create!(name: name, code: code)
+      (9..sheet.last_row).each do |i|
+        student = User.where(code: sheet.cell(i, 'B')).first
+        unless student == nil
+          subject.users << student unless subject.users.include?(student)
+        end
       end
     end
   end

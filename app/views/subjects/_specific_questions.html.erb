@@ -1,18 +1,57 @@
 <br>
-<%= bootstrap_form_tag url: new_membership_path do |f| %>
-  <% options = options_from_collection_for_select(@subject.users, 'id', 'code') %>
-  <%= f.select :student_id,  options, label: "Código de Estudiante" %>
-  <br>
-  <h4 class="underline">Analisis de las variables y elementos que definen el problema</h4>
-  <%= f.select(:arguments_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'],["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta argumentos claros y adecuados") %>
-  <%= f.select(:diagram_structure, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Estructura los componentes básicas en un mapa o diagrama") %>
-  <%= f.select(:objective_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta el objetivo general del problema") %>
-  <%= f.select(:problem_solution, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta la solución del problema") %>
-  <br>
-  <h4 class="underline">Presenta soluciones de software básicas con base en la programación orientada a objetos</h4>
-  <%= f.select(:case_use_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'],["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los reguisitos mediante los diagramas casos de uso") %>
-  <%= f.select(:class_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura la solución del problmea mediante los diagramas de clase") %>
-  <%= f.select(:secuence_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los pasos en la ejecución del problema mediante los diagramas de secuencia") %>
-  <br>
-  <%= f.submit "Calificar" %>
+<% if current_subject(@subject) == 'principios' %>
+  <%= bootstrap_form_tag url: new_membership_path do |f| %>
+    <% options = options_from_collection_for_select(@subject.users, 'id', 'code') %>
+    <%= f.select :student_id,  options, label: "Código de Estudiante" %>
+    <br>
+    <h4 class="underline">Analisis de las variables y elementos que definen el problema</h4>
+    <%= f.select(:arguments_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'],["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta argumentos claros y adecuados") %>
+    <%= f.select(:diagram_structure, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Estructura los componentes básicas en un mapa o diagrama") %>
+    <%= f.select(:objective_presentation, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta el objetivo general del problema") %>
+    <%= f.select(:problem_solution, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta la solución del problema") %>
+    <br>
+    <h4 class="underline">Presenta soluciones de software básicas con base en la programación orientada a objetos</h4>
+    <%= f.select(:case_use_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'],["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los reguisitos mediante los diagramas casos de uso") %>
+    <%= f.select(:class_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura la solución del problmea mediante los diagramas de clase") %>
+    <%= f.select(:secuence_diagrams, [['Responden a las necesidades planteadas en el problema', 'Responden a las necesidades planteadas en el problema-5'], ['Presentan aspectos básicos que pueden ser mejorados', 'Presentan aspectos básicos que pueden ser mejorados-3'], ["Hay que rehacerlos para que se adecuen a las condiciones del problema", "Hay que rehacerlos para que se adecuen a las condiciones del problema-0"]], label: "Estructura los pasos en la ejecución del problema mediante los diagramas de secuencia") %>
+    <br>
+    <%= f.submit "Calificar" %>
+  <% end %>
 <% end %>
+
+
+<% if current_subject(@subject) == 'fundamentos' %>
+  <%= bootstrap_form_tag url: new_membership_path do |f| %>
+    <% options = options_from_collection_for_select(@subject.users, 'id', 'code') %>
+    <%= f.select :student_id,  options, label: "Código de Estudiante" %>
+    <br>
+    <h4 class="underline">Define la solución de problemas que obedecen a estructura básicas mediante el uso de técnicas de programación</h4>
+    <%= f.select(:black_box, [['Presenta las entradas y salidas del algotitmo de forma excelente', 'Presenta las entradas y salidas del algotitmo de forma excelente-5'], ['Presenta las entradas y salidas del algotitmo de forma adecuada', 'Presenta las entradas y salidas del algotitmo de forma adecuada-3'],["Presenta las entradas y salidas del algotitmo de forma inadecuada", "Presenta las entradas y salidas del algotitmo de forma inadecuada-0"]], label: "Analiza algoritmos mediante la técnica de caja negra") %>
+    <%= f.select(:pseudocode, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta pseudocodigos") %>
+    <%= f.select(:diagrams, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Presenta diagramas de flujo") %>
+    <%= f.select(:modularity, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Usa la técnica de modularidad") %>
+    <br>
+    <h4 class="underline">Diseño de algoritmos que involucran los elementos básicos de la programación estructurada</h4>
+    <%= f.select(:sequences, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Utiliza las secuencias de forma") %>
+    <%= f.select(:desitions, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Utiliza las desiciones de forma") %>
+    <%= f.select(:loops, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Utiliza los ciclos de forma") %>
+    <%= f.select(:functions, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Utiliza las funciones de forma ") %>
+    <%= f.select(:data_structures, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Utiliza las estructuras de datos lineales de forma") %>
+    <br>
+    <h4 class="underline">Realiza programas en Java bajo el enfoque Orientado a Objetos mostrando el uso de</h4>
+    <%= f.select(:abstraction, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Abstracción de forma") %>
+    <%= f.select(:encapsulation,[['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Encapsulamiento de forma") %>
+    <%= f.select(:inheritance, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Herencia los ciclos de forma") %>
+    <%= f.select(:polymorphism, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Polimorfismo las funciones de forma") %>
+    <br>
+    <h4 class="underline">Desarrolla programas en Java con Interfaz en modo consola e Interfaz en modo Gráfico</h4>
+    <%= f.select(:class_diagrams, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Estructura la solución del problmea mediante los diagramas de clase") %>
+    <%= f.select(:implementation,[['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Muestra capacidad de crear la implementación de un programa que funcione correctamente") %>
+    <%= f.select(:testing, [['De forma excelente', 'De forma excelente-5'], ['De forma adecuada', 'De forma adecuada-3'], ["De forma inadecuada", "De forma inadecuada-0"]], label: "Muestra capacidad para diseñar y llevar a cabo pruebas de la aplicación") %>
+    <br>
+    <%= f.submit "Calificar" %>
+  <% end %>
+<% end %>
+
+
+
